@@ -30,8 +30,8 @@ int main(void)
   ADC_init();
 
   int ADC_sample[20];
-  extern int ADC_new;
-  extern int ADC_newFlag;
+  int ADC_new;
+  int ADC_newFlag;
 
   int sampleCount = 0;
 
