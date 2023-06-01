@@ -73,6 +73,17 @@ void LPUART_write(){
 	LPUART_Print("Input");
 }
 
+void LPUART_cursorMove(int spaces, int lines){
+	char spacesStr[16];
+	sprintf(spacesStr, "%d", spaces);
+	LPUART_ESC_Print(spacesStr);
+	char linesStr[16];
+	sprintf(linesStr, "%d", lines);
+	LPUART_Print(";");
+	LPUART_Print(linesStr);
+	LPUART_Print("H");
+}
+
 void LPUART1_IRQHandler( void ) {
    uint8_t charRecv;
    if (LPUART1->ISR & USART_ISR_RXNE) {
